@@ -1,8 +1,12 @@
 import express, { Application } from "express";
 import "dotenv/config";
 import cors from "cors";
+import mongoose from "mongoose";
 import authRouter from "./routes/auth.route";
 import errorMiddleware from "./middleware/error.middleware";
+
+// Connect database
+mongoose.connect(process.env.DATABASE_CONNECTION_STRING as string);
 
 // Initial
 const app: Application = express();
